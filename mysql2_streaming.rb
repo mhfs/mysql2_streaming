@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'bundler/setup'
 require "mysql2"
 
 # Adjust to your environment
