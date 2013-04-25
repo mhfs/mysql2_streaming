@@ -17,6 +17,9 @@ client.query "CREATE TABLE people (name VARCHAR(100));"
   client.query "INSERT INTO people VALUES ('Person #{i + 1}');"
 end
 
+time = ARGV[0] || 10
+client.query "SET net_write_timeout = #{time}"
+
 res = client.query "SELECT * FROM people;", :hash => true, :stream => true
 
 res.each_with_index do |row, i|
